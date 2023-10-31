@@ -26,4 +26,13 @@ return [
     'show' => 'Detail Role & Permission',
     'delete' => 'Hapus Role & Permission',
   ],
+
+  'levels' => [
+    'title' => 'Jenjang Level',
+    'index' => 'Daftar Jenjang Level',
+    'create' => 'Tambah Jenjang Level',
+    'edit' => 'Ubah Jenjang Level',
+    'show' => 'Detail Jenjang Level',
+    'delete' => 'Hapus Jenjang Level',
+  ],
 ];

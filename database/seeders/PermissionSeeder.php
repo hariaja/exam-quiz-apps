@@ -33,12 +33,21 @@ class PermissionSeeder extends Seeder
       'roles.edit',
       'roles.update',
       'roles.destroy',
+
+      // Halaman level
+      'levels.index',
+      'levels.create',
+      'levels.store',
+      'levels.edit',
+      'levels.update',
+      'levels.destroy',
     ];
 
     $guardName = 'web';
     $permissionCategoryId = [
       'users' => 1,
       'roles' => 2,
+      'levels' => 3,
     ];
 
     // Masukkan atau simpan ke tabel permissions

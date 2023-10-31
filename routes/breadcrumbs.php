@@ -54,3 +54,24 @@ Breadcrumbs::for('users.show', function (BreadcrumbTrail $trail, $user) {
   $trail->parent('users.index');
   $trail->push(trans('page.users.show'), route('users.show', $user->uuid));
 });
+
+// levels Breadcrumbs
+Breadcrumbs::for('levels.index', function (BreadcrumbTrail $trail) {
+  $trail->parent('home');
+  $trail->push(trans('page.levels.index'), route('levels.index'));
+});
+
+Breadcrumbs::for('levels.create', function (BreadcrumbTrail $trail) {
+  $trail->parent('levels.index');
+  $trail->push(trans('page.levels.create'), route('levels.create'));
+});
+
+Breadcrumbs::for('levels.edit', function (BreadcrumbTrail $trail, $level) {
+  $trail->parent('levels.index');
+  $trail->push(trans('page.levels.edit'), route('levels.edit', $level->uuid));
+});
+
+Breadcrumbs::for('levels.show', function (BreadcrumbTrail $trail, $level) {
+  $trail->parent('levels.index');
+  $trail->push(trans('page.levels.show'), route('levels.show', $level->uuid));
+});

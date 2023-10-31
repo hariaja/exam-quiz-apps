@@ -26,4 +26,17 @@ return [
     'delete' => 'Hapus Permanen Peran yang sudah Terhapus dari penyimpanan',
     'restore' => 'Restore Data Peran yang ditentukan dari penyimpanan yang sudah dihapus',
   ],
+
+  'levels' => [
+    'name' => 'Management Level',
+    'index' => 'Menampilkan daftar Level',
+    'create' => 'Tampilkan formulir untuk membuat Level baru',
+    'store' => 'Simpan Level yang baru dibuat di penyimpanan',
+    'show' => 'Menampilkan Detail Level yang ditentukan',
+    'edit' => 'Tampilkan formulir untuk mengedit Level yang ditentukan',
+    'update' => 'Perbarui Level yang ditentukan dalam penyimpanan',
+    'destroy' => 'Hapus Level yang ditentukan dari penyimpanan',
+    'delete' => 'Hapus Permanen Level yang sudah Terhapus dari penyimpanan',
+    'restore' => 'Restore Data Level yang ditentukan dari penyimpanan yang sudah dihapus',
+  ],
 ];

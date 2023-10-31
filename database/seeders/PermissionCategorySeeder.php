@@ -16,6 +16,7 @@ class PermissionCategorySeeder extends Seeder
     $items = [
       'users.name',
       'roles.name',
+      'levels.name',
     ];
 
     // Masukkan atau simpan ke database
