@@ -29,7 +29,7 @@ class RoleServiceImplement extends Service implements RoleService
     } catch (\Exception $e) {
       DB::rollBack();
       Log::info($e->getMessage());
-      throw new InvalidArgumentException(trans('session.log.error'));
+      throw new InvalidArgumentException(trans('alert.log.error'));
     }
   }
 
@@ -44,7 +44,7 @@ class RoleServiceImplement extends Service implements RoleService
     } catch (\Exception $e) {
       DB::rollBack();
       Log::info($e->getMessage());
-      throw new InvalidArgumentException(trans('session.log.error'));
+      throw new InvalidArgumentException(trans('alert.log.error'));
     }
   }
 
@@ -59,7 +59,7 @@ class RoleServiceImplement extends Service implements RoleService
     } catch (\Exception $e) {
       DB::rollBack();
       Log::info($e->getMessage());
-      throw new InvalidArgumentException(trans('session.log.error'));
+      throw new InvalidArgumentException(trans('alert.log.error'));
     }
   }
 
@@ -78,7 +78,7 @@ class RoleServiceImplement extends Service implements RoleService
     } catch (\Exception $e) {
       DB::rollBack();
       Log::info($e->getMessage());
-      throw new InvalidArgumentException(trans('session.log.error'));
+      throw new InvalidArgumentException(trans('alert.log.error'));
     }
   }
 }

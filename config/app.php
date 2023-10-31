@@ -188,6 +188,7 @@ return [
     'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     'Role' => App\Helpers\Enums\RoleType::class,
     'AccountStatus' => App\Helpers\Enums\AccountStatusType::class,
+    'Helper' => App\Helpers\Helper::class,
   ])->toArray(),
 
 ];

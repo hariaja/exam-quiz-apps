@@ -54,7 +54,7 @@ class Helper
   public static function redirectAfterUpdateUser(User $user)
   {
     if (me()->id != $user->id) :
-      return redirect(route('users.index'))->with('success', trans('session.update'));
+      return redirect(route('users.index'))->with('success', trans('alert.update'));
     else :
       return redirect(route('users.show', me()->uuid))->with('success', trans('Berhasil Memperbaharui Profil Anda'));
     endif;

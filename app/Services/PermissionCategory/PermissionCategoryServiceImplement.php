@@ -29,7 +29,7 @@ class PermissionCategoryServiceImplement extends Service implements PermissionCa
     } catch (\Exception $e) {
       DB::rollBack();
       Log::info($e->getMessage());
-      throw new InvalidArgumentException(trans('session.log.error'));
+      throw new InvalidArgumentException(trans('alert.log.error'));
     }
   }
 
@@ -44,7 +44,7 @@ class PermissionCategoryServiceImplement extends Service implements PermissionCa
     } catch (\Exception $e) {
       DB::rollBack();
       Log::info($e->getMessage());
-      throw new InvalidArgumentException(trans('session.log.error'));
+      throw new InvalidArgumentException(trans('alert.log.error'));
     }
   }
 
@@ -63,7 +63,7 @@ class PermissionCategoryServiceImplement extends Service implements PermissionCa
     } catch (\Exception $e) {
       DB::rollBack();
       Log::info($e->getMessage());
-      throw new InvalidArgumentException(trans('session.log.error'));
+      throw new InvalidArgumentException(trans('alert.log.error'));
     }
   }
 }
