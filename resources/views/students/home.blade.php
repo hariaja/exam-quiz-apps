@@ -1,3 +1,11 @@
+@if (session('status'))
+<div class="alert alert-success" role="alert">
+  {{ session('status') }}
+</div>
+@endif
+
+<br>
+
 This Student Page
 
 <a class="dropdown-item d-flex align-items-center text-danger justify-content-between space-x-1" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
