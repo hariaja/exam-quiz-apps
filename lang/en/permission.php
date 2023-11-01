@@ -40,6 +40,19 @@ return [
     'restore' => 'Restore Data Level yang ditentukan dari penyimpanan yang sudah dihapus',
   ],
 
+  'categories' => [
+    'name' => 'Management Kategori',
+    'index' => 'Menampilkan daftar Kategori',
+    'create' => 'Tampilkan formulir untuk membuat Kategori baru',
+    'store' => 'Simpan Kategori yang baru dibuat di penyimpanan',
+    'show' => 'Menampilkan Detail Kategori yang ditentukan',
+    'edit' => 'Tampilkan formulir untuk mengedit Kategori yang ditentukan',
+    'update' => 'Perbarui Kategori yang ditentukan dalam penyimpanan',
+    'destroy' => 'Hapus Kategori yang ditentukan dari penyimpanan',
+    'delete' => 'Hapus Permanen Kategori yang sudah Terhapus dari penyimpanan',
+    'restore' => 'Restore Data Kategori yang ditentukan dari penyimpanan yang sudah dihapus',
+  ],
+
   'lessons' => [
     'name' => 'Management Materi',
     'index' => 'Menampilkan daftar Materi',

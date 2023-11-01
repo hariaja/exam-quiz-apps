@@ -36,6 +36,15 @@ return [
     'delete' => 'Hapus Jenjang Level',
   ],
 
+  'categories' => [
+    'title' => 'Kategori',
+    'index' => 'Daftar Kategori',
+    'create' => 'Tambah Kategori',
+    'edit' => 'Ubah Kategori',
+    'show' => 'Detail Kategori',
+    'delete' => 'Hapus Kategori',
+  ],
+
   'lessons' => [
     'title' => 'Materi Pembelajaran',
     'index' => 'Daftar Materi Pembelajaran',

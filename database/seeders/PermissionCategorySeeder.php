@@ -18,6 +18,7 @@ class PermissionCategorySeeder extends Seeder
       'roles.name',
       'levels.name',
       'lessons.name',
+      'categories.name',
     ];
 
     // Masukkan atau simpan ke database

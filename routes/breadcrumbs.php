@@ -96,3 +96,24 @@ Breadcrumbs::for('lessons.show', function (BreadcrumbTrail $trail, $lesson) {
   $trail->parent('lessons.index');
   $trail->push(trans('page.lessons.show'), route('lessons.show', $lesson->uuid));
 });
+
+// categories Breadcrumbs
+Breadcrumbs::for('categories.index', function (BreadcrumbTrail $trail) {
+  $trail->parent('home');
+  $trail->push(trans('page.categories.index'), route('categories.index'));
+});
+
+Breadcrumbs::for('categories.create', function (BreadcrumbTrail $trail) {
+  $trail->parent('categories.index');
+  $trail->push(trans('page.categories.create'), route('categories.create'));
+});
+
+Breadcrumbs::for('categories.edit', function (BreadcrumbTrail $trail, $category) {
+  $trail->parent('categories.index');
+  $trail->push(trans('page.categories.edit'), route('categories.edit', $category->uuid));
+});
+
+Breadcrumbs::for('categories.show', function (BreadcrumbTrail $trail, $category) {
+  $trail->parent('categories.index');
+  $trail->push(trans('page.categories.show'), route('categories.show', $category->uuid));
+});
