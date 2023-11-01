@@ -21,6 +21,7 @@ class Lesson extends Model
    */
   protected $fillable = [
     'uuid',
+    'category_id',
     'level_id',
     'title',
     'excerpt',
@@ -85,5 +86,15 @@ class Lesson extends Model
   public function level(): BelongsTo
   {
     return $this->belongsTo(Level::class, 'level_id');
+  }
+
+  /**
+   * Relation to Category model
+   *
+   * @return BelongsTo
+   */
+  public function category(): BelongsTo
+  {
+    return $this->belongsTo(Category::class, 'category_id');
   }
 }

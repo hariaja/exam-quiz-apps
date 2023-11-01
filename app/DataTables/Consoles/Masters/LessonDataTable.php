@@ -37,6 +37,7 @@ class LessonDataTable extends DataTable
     return (new EloquentDataTable($query))
       ->addIndexColumn()
       ->addColumn('level', fn ($row) => $row->level->name)
+      ->addColumn('category', fn ($row) => $row->category->name)
       ->editColumn('status', fn ($row) => $row->statusLabel)
       ->editColumn('created_at', fn ($row) => Helper::parseDateTime($row->created_at))
       ->addColumn('action', 'consoles.masters.lessons.action')
@@ -113,6 +114,9 @@ class LessonDataTable extends DataTable
         ->addClass('text-center'),
       Column::make('level')
         ->title(trans('Jenjang'))
+        ->addClass('text-center'),
+      Column::make('category')
+        ->title(trans('Kategori'))
         ->addClass('text-center'),
       Column::make('status')
         ->title(trans('Status'))

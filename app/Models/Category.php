@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Traits\Uuid;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
@@ -26,5 +27,15 @@ class Category extends Model
   public function getRouteKeyName(): string
   {
     return 'uuid';
+  }
+
+  /**
+   * Relation to Lesson Model.
+   *
+   * @return HasMany
+   */
+  public function lessons(): HasMany
+  {
+    return $this->hasMany(Lesson::class, 'category_id');
   }
 }

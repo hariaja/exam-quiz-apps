@@ -29,8 +29,9 @@ class LessonRequest extends FormRequest
         Rule::unique('lessons', 'title')->ignore($this->lesson),
       ],
       'level_id' => 'required|exists:levels,id',
+      'category_id' => 'required|exists:categories,id',
       'video_link' => 'required|url|regex:/^(https:\/\/www\.youtube\.com\/watch\?v=)[a-zA-Z0-9_-]{11}$/',
-      'file' => 'required|mimes:jpg,png|max:3048',
+      'file' => $this->method() === "POST" ? 'required|mimes:jpg,png|max:3048' : 'nullable|mimes:jpg,png|max:3048',
       'description' => 'required|string',
       'status' => 'required',
     ];

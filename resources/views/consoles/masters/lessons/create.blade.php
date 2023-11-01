@@ -55,6 +55,20 @@
           </div>
 
           <div class="mb-4">
+            <label for="category_id" class="form-label">{{ trans('Kategori Materi') }}</label>
+            <span class="text-danger">*</span>
+            <select name="category_id" id="category_id" class="js-select2 form-select @error('category_id') is-invalid @enderror" data-placeholder="{{ trans('Pilih Kategori Materi') }}" style="width: 100%;">
+              <option></option>
+              @foreach ($categories as $item)
+              <option value="{{ $item->id }}" @if (old('category_id')==$item->id) selected @endif>{{ $item->name }}</option>
+              @endforeach
+            </select>
+            @error('category_id')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+
+          <div class="mb-4">
             <label for="video_link" class="form-label">{{ trans('Link Video') }}</label>
             <span class="text-danger">*</span>
             <input type="link" name="video_link" id="video_link" value="{{ old('video_link') }}" class="form-control @error('video_link') is-invalid @enderror" placeholder="{{ trans('Link Video') }}">

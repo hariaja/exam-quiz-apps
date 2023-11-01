@@ -80,6 +80,12 @@
             </tr>
             <tr>
               <td>
+                <i class="fa fa-fw fa-tags opacity-50 me-2"></i>
+                <span class="fs-sm">{{ $lesson->category->name }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <i class="fa fa-fw fa-power-off opacity-50 me-2"></i>
                 {!! $lesson->statusLabel !!}
               </td>

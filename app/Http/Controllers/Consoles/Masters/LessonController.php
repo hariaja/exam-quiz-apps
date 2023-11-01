@@ -13,6 +13,7 @@ use App\DataTables\Scopes\StatusFilter;
 use App\DataTables\Consoles\Masters\LessonDataTable;
 use App\Helpers\Helper;
 use App\Http\Requests\Consoles\Masters\LessonRequest;
+use App\Services\Category\CategoryService;
 
 class LessonController extends Controller
 {
@@ -24,6 +25,7 @@ class LessonController extends Controller
   public function __construct(
     protected LevelService $levelService,
     protected LessonService $lessonService,
+    protected CategoryService $categoryService,
   ) {
     // 
   }
@@ -49,8 +51,9 @@ class LessonController extends Controller
   {
     $status = DecideType::toArray();
     $levels = $this->levelService->all();
+    $categories = $this->categoryService->all();
 
-    return view('consoles.masters.lessons.create', compact('levels', 'status'));
+    return view('consoles.masters.lessons.create', compact('levels', 'status', 'categories'));
   }
 
   /**
@@ -80,8 +83,9 @@ class LessonController extends Controller
   {
     $status = DecideType::toArray();
     $levels = $this->levelService->all();
+    $categories = $this->categoryService->all();
 
-    return view('consoles.masters.lessons.edit', compact('levels', 'status', 'lesson'));
+    return view('consoles.masters.lessons.edit', compact('levels', 'status', 'lesson', 'categories'));
   }
 
   /**
