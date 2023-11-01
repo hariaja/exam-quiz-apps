@@ -190,6 +190,7 @@ return [
     'Role' => App\Helpers\Enums\RoleType::class,
     'AccountStatus' => App\Helpers\Enums\AccountStatusType::class,
     'Decide' => App\Helpers\Enums\DecideType::class,
+    'Difficulty' => App\Helpers\Enums\DifficultyType::class,
     'Helper' => App\Helpers\Helper::class,
     'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
   ])->toArray(),

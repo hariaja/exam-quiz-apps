@@ -117,3 +117,24 @@ Breadcrumbs::for('categories.show', function (BreadcrumbTrail $trail, $category)
   $trail->parent('categories.index');
   $trail->push(trans('page.categories.show'), route('categories.show', $category->uuid));
 });
+
+// questions Breadcrumbs
+Breadcrumbs::for('questions.index', function (BreadcrumbTrail $trail) {
+  $trail->parent('home');
+  $trail->push(trans('page.questions.index'), route('questions.index'));
+});
+
+Breadcrumbs::for('questions.create', function (BreadcrumbTrail $trail) {
+  $trail->parent('questions.index');
+  $trail->push(trans('page.questions.create'), route('questions.create'));
+});
+
+Breadcrumbs::for('questions.edit', function (BreadcrumbTrail $trail, $question) {
+  $trail->parent('questions.index');
+  $trail->push(trans('page.questions.edit'), route('questions.edit', $question->uuid));
+});
+
+Breadcrumbs::for('questions.show', function (BreadcrumbTrail $trail, $question) {
+  $trail->parent('questions.index');
+  $trail->push(trans('page.questions.show'), route('questions.show', $question->uuid));
+});

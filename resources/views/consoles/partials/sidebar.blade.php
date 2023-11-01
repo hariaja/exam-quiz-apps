@@ -116,6 +116,27 @@
           </li>
           @endcan
 
+          @canany(['questions.index'])
+          <li class="nav-main-heading">{{ trans('Ujian') }}</li>
+
+          <li class="nav-main-item {{ Request::is('consoles/exams*') ? 'open' : '' }}">
+            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="{{ Request::is('consoles/exams*') ? 'true' : 'false' }}" href="#">
+              <i class="nav-main-link-icon fa fa-pencil-alt"></i>
+              <span class="nav-main-link-name">{{ trans('Ujian Quiz') }}</span>
+            </a>
+            <ul class="nav-main-submenu">
+              @can('questions.index')
+              <li class="nav-main-item">
+                <a class="nav-main-link {{ Request::is('consoles/exams/questions*') ? 'active' : '' }}" href="{{ route('questions.index') }}">
+                  <span class="nav-main-link-name">{{ trans('page.questions.title') }}</span>
+                </a>
+              </li>
+              @endcan
+            </ul>
+          </li>
+
+          @endcan
+
           @canany(['roles.index', 'users.index'])
           <li class="nav-main-heading">{{ trans('Management') }}</li>
 

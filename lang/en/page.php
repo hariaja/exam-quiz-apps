@@ -53,4 +53,13 @@ return [
     'show' => 'Detail Materi Pembelajaran',
     'delete' => 'Hapus Materi Pembelajaran',
   ],
+
+  'questions' => [
+    'title' => 'Quiz',
+    'index' => 'Daftar Quiz',
+    'create' => 'Tambah Quiz',
+    'edit' => 'Ubah Quiz',
+    'show' => 'Detail Quiz',
+    'delete' => 'Hapus Quiz',
+  ],
 ];

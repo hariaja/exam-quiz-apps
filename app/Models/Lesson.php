@@ -4,11 +4,12 @@ namespace App\Models;
 
 use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Support\Facades\Storage;
 
 class Lesson extends Model
 {
@@ -76,6 +77,16 @@ class Lesson extends Model
     }
 
     return Storage::url($this->banner);
+  }
+
+  /**
+   * Relation to Question Model.
+   *
+   * @return HasMany
+   */
+  public function questions(): HasMany
+  {
+    return $this->hasMany(Question::class, 'lesson_id');
   }
 
   /**

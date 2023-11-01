@@ -65,4 +65,17 @@ return [
     'delete' => 'Hapus Permanen Materi yang sudah Terhapus dari penyimpanan',
     'restore' => 'Restore Data Materi yang ditentukan dari penyimpanan yang sudah dihapus',
   ],
+
+  'questions' => [
+    'name' => 'Management Quiz',
+    'index' => 'Menampilkan daftar Quiz',
+    'create' => 'Tampilkan formulir untuk membuat Quiz baru',
+    'store' => 'Simpan Quiz yang baru dibuat di penyimpanan',
+    'show' => 'Menampilkan Detail Quiz yang ditentukan',
+    'edit' => 'Tampilkan formulir untuk mengedit Quiz yang ditentukan',
+    'update' => 'Perbarui Quiz yang ditentukan dalam penyimpanan',
+    'destroy' => 'Hapus Quiz yang ditentukan dari penyimpanan',
+    'delete' => 'Hapus Permanen Quiz yang sudah Terhapus dari penyimpanan',
+    'restore' => 'Restore Data Quiz yang ditentukan dari penyimpanan yang sudah dihapus',
+  ],
 ];

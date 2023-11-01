@@ -1,20 +1,20 @@
 <?php
 
-namespace App\DataTables\Consoles\Masters;
+namespace App\DataTables\Consoles\Exams;
 
-use App\Models\Lesson;
 use App\Helpers\Helper;
-use App\Services\Lesson\LessonService;
+use App\Models\Question;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use App\Services\Question\QuestionService;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 
-class LessonDataTable extends DataTable
+class QuestionDataTable extends DataTable
 {
   /**
    * Create a new datatables instance.
@@ -22,7 +22,7 @@ class LessonDataTable extends DataTable
    * @return void
    */
   public function __construct(
-    protected LessonService $lessonService,
+    protected QuestionService $questionService,
   ) {
     // 
   }
@@ -36,33 +36,25 @@ class LessonDataTable extends DataTable
   {
     return (new EloquentDataTable($query))
       ->addIndexColumn()
-      ->addColumn('level', fn ($row) => $row->level->name)
-      ->addColumn('category', fn ($row) => $row->category->name)
-      ->editColumn('status', fn ($row) => $row->statusLabel)
+      ->addColumn('lesson', fn ($row) => $row->lesson->title)
       ->editColumn('created_at', fn ($row) => Helper::parseDateTime($row->created_at))
-      ->filterColumn('level', function ($row, $keyword) {
-        $row->whereHas('level', function ($row) use ($keyword) {
-          $row->where('name', 'like', "%{$keyword}%");
+      ->addColumn('action', 'consoles.questions.action')
+      ->filterColumn('lesson', function ($row, $keyword) {
+        $row->whereHas('lesson', function ($row) use ($keyword) {
+          $row->where('title', 'like', "%{$keyword}%");
         });
       })
-      ->filterColumn('category', function ($row, $keyword) {
-        $row->whereHas('category', function ($row) use ($keyword) {
-          $row->where('name', 'like', "%{$keyword}%");
-        });
-      })
-      ->addColumn('action', 'consoles.masters.lessons.action')
       ->rawColumns([
         'action',
-        'status',
       ]);
   }
 
   /**
    * Get the query source of dataTable.
    */
-  public function query(Lesson $model): QueryBuilder
+  public function query(Question $model): QueryBuilder
   {
-    return $this->lessonService->getQuery()->oldest('title');
+    return $this->questionService->getQuery()->latest();
   }
 
   /**
@@ -71,19 +63,10 @@ class LessonDataTable extends DataTable
   public function html(): HtmlBuilder
   {
     return $this->builder()
-      ->setTableId('lesson-table')
+      ->setTableId('question-table')
       ->columns($this->getColumns())
       ->minifiedAjax()
       //->dom('Bfrtip')
-      ->ajax([
-        'url' => route('lessons.index'),
-        'type' => 'GET',
-        'data' => "
-        function(data) {
-          _token = '{{ csrf_token() }}',
-          data.status = $('select[name=status]').val();
-        }"
-      ])
       ->addTableClass([
         'table',
         'table-striped',
@@ -108,8 +91,8 @@ class LessonDataTable extends DataTable
   {
     // Check Visibility of Action Row
     $visibility = Helper::checkPermissions([
-      'lessons.edit',
-      'lessons.destroy',
+      'questions.edit',
+      'questions.destroy',
     ]);
 
     return [
@@ -119,20 +102,14 @@ class LessonDataTable extends DataTable
         ->searchable(false)
         ->width('5%')
         ->addClass('text-center'),
+      Column::make('lesson')
+        ->title(trans('Judul Materi'))
+        ->addClass('text-center'),
       Column::make('title')
-        ->title(trans('Judul'))
-        ->addClass('text-center'),
-      Column::make('level')
-        ->title(trans('Jenjang'))
-        ->addClass('text-center'),
-      Column::make('category')
-        ->title(trans('Kategori'))
-        ->addClass('text-center'),
-      Column::make('status')
-        ->title(trans('Status'))
+        ->title(trans('Tingkat Kesulitan'))
         ->addClass('text-center'),
       Column::make('created_at')
-        ->title(trans('Diupload Pada'))
+        ->title(trans('Dibuat Pada'))
         ->addClass('text-center'),
       Column::computed('action')
         ->exportable(false)
@@ -148,6 +125,6 @@ class LessonDataTable extends DataTable
    */
   protected function filename(): string
   {
-    return 'Lesson_' . date('YmdHis');
+    return 'Question_' . date('YmdHis');
   }
 }

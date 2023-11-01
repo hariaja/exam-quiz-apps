@@ -59,6 +59,14 @@ class PermissionSeeder extends Seeder
       'categories.update',
       'categories.destroy',
 
+      // Halaman question
+      'questions.index',
+      'questions.create',
+      'questions.store',
+      'questions.show',
+      'questions.edit',
+      'questions.update',
+      'questions.destroy',
     ];
 
     $guardName = 'web';
@@ -68,6 +76,7 @@ class PermissionSeeder extends Seeder
       'levels' => 3,
       'lessons' => 4,
       'categories' => 5,
+      'questions' => 6,
     ];
 
     // Masukkan atau simpan ke tabel permissions

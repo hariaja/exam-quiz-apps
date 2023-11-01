@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Enums\RoleType;
+use App\Http\Controllers\Consoles\Exams\QuestionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Consoles\HomeController;
 use App\Http\Controllers\Consoles\Masters\CategoryController;
@@ -46,6 +47,11 @@ Route::prefix('consoles')->group(function () use ($roles) {
 
       // Lesson Management.
       Route::resource('lessons', LessonController::class);
+    });
+
+    Route::prefix('exams')->group(function () {
+      // Questions
+      Route::resource('questions', QuestionController::class);
     });
   });
 });
