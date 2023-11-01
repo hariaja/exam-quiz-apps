@@ -3,6 +3,7 @@
 use App\Helpers\Enums\RoleType;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Consoles\HomeController;
+use App\Http\Controllers\Consoles\Masters\LessonController;
 use App\Http\Controllers\Consoles\Masters\LevelController;
 use App\Http\Controllers\Consoles\Settings\RoleController;
 use App\Http\Controllers\Consoles\Settings\UserController;
@@ -38,6 +39,9 @@ Route::prefix('consoles')->group(function () use ($roles) {
     Route::prefix('masters')->group(function () {
       // Level
       Route::resource('levels', LevelController::class)->except('show');
+
+      // Lesson Management.
+      Route::resource('lessons', LessonController::class);
     });
   });
 });

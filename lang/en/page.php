@@ -35,4 +35,13 @@ return [
     'show' => 'Detail Jenjang Level',
     'delete' => 'Hapus Jenjang Level',
   ],
+
+  'lessons' => [
+    'title' => 'Materi Pembelajaran',
+    'index' => 'Daftar Materi Pembelajaran',
+    'create' => 'Tambah Materi Pembelajaran',
+    'edit' => 'Ubah Materi Pembelajaran',
+    'show' => 'Detail Materi Pembelajaran',
+    'delete' => 'Hapus Materi Pembelajaran',
+  ],
 ];

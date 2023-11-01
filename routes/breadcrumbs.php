@@ -75,3 +75,24 @@ Breadcrumbs::for('levels.show', function (BreadcrumbTrail $trail, $level) {
   $trail->parent('levels.index');
   $trail->push(trans('page.levels.show'), route('levels.show', $level->uuid));
 });
+
+// lessons Breadcrumbs
+Breadcrumbs::for('lessons.index', function (BreadcrumbTrail $trail) {
+  $trail->parent('home');
+  $trail->push(trans('page.lessons.index'), route('lessons.index'));
+});
+
+Breadcrumbs::for('lessons.create', function (BreadcrumbTrail $trail) {
+  $trail->parent('lessons.index');
+  $trail->push(trans('page.lessons.create'), route('lessons.create'));
+});
+
+Breadcrumbs::for('lessons.edit', function (BreadcrumbTrail $trail, $lesson) {
+  $trail->parent('lessons.index');
+  $trail->push(trans('page.lessons.edit'), route('lessons.edit', $lesson->uuid));
+});
+
+Breadcrumbs::for('lessons.show', function (BreadcrumbTrail $trail, $lesson) {
+  $trail->parent('lessons.index');
+  $trail->push(trans('page.lessons.show'), route('lessons.show', $lesson->uuid));
+});

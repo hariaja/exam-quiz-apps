@@ -162,6 +162,7 @@ return [
     Spatie\Permission\PermissionServiceProvider::class,
     Yajra\DataTables\DataTablesServiceProvider::class,
     RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+    Alaouy\Youtube\YoutubeServiceProvider::class,
     /*
     * Application Service Providers...
     */
@@ -188,7 +189,9 @@ return [
     'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     'Role' => App\Helpers\Enums\RoleType::class,
     'AccountStatus' => App\Helpers\Enums\AccountStatusType::class,
+    'Decide' => App\Helpers\Enums\DecideType::class,
     'Helper' => App\Helpers\Helper::class,
+    'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
   ])->toArray(),
 
 ];

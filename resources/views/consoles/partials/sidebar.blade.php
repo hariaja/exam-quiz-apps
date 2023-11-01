@@ -82,7 +82,7 @@
             </a>
           </li>
 
-          @canany(['levels.index'])
+          @canany(['levels.index', 'lessons.index'])
           <li class="nav-main-heading">{{ trans('Master') }}</li>
 
           <li class="nav-main-item {{ Request::is('consoles/masters*') ? 'open' : '' }}">
@@ -95,6 +95,13 @@
               <li class="nav-main-item">
                 <a class="nav-main-link {{ Request::is('consoles/masters/levels*') ? 'active' : '' }}" href="{{ route('levels.index') }}">
                   <span class="nav-main-link-name">{{ trans('page.levels.title') }}</span>
+                </a>
+              </li>
+              @endcan
+              @can('lessons.index')
+              <li class="nav-main-item">
+                <a class="nav-main-link {{ Request::is('consoles/masters/lessons*') ? 'active' : '' }}" href="{{ route('lessons.index') }}">
+                  <span class="nav-main-link-name">{{ trans('page.lessons.title') }}</span>
                 </a>
               </li>
               @endcan

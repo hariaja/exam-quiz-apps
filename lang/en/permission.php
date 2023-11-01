@@ -39,4 +39,17 @@ return [
     'delete' => 'Hapus Permanen Level yang sudah Terhapus dari penyimpanan',
     'restore' => 'Restore Data Level yang ditentukan dari penyimpanan yang sudah dihapus',
   ],
+
+  'lessons' => [
+    'name' => 'Management Materi',
+    'index' => 'Menampilkan daftar Materi',
+    'create' => 'Tampilkan formulir untuk membuat Materi baru',
+    'store' => 'Simpan Materi yang baru dibuat di penyimpanan',
+    'show' => 'Menampilkan Detail Materi yang ditentukan',
+    'edit' => 'Tampilkan formulir untuk mengedit Materi yang ditentukan',
+    'update' => 'Perbarui Materi yang ditentukan dalam penyimpanan',
+    'destroy' => 'Hapus Materi yang ditentukan dari penyimpanan',
+    'delete' => 'Hapus Permanen Materi yang sudah Terhapus dari penyimpanan',
+    'restore' => 'Restore Data Materi yang ditentukan dari penyimpanan yang sudah dihapus',
+  ],
 ];

@@ -140,4 +140,20 @@ class Helper
   {
     return 'Rp. ' . number_format($value, 0, ',', ',');
   }
+
+  public static function getYoutubeVideoId(string $url)
+  {
+    $url = $url;
+
+    $parsedUrl = parse_url($url);
+    parse_str($parsedUrl['query'], $query);
+
+    if (isset($query['v'])) {
+      $videoId = $query['v'];
+    } else {
+      $videoId = null;
+    }
+
+    return $videoId;
+  }
 }
