@@ -62,4 +62,13 @@ return [
     'show' => 'Detail Quiz',
     'delete' => 'Hapus Quiz',
   ],
+
+  'results' => [
+    'title' => 'Quiz Pembelajaran',
+    'index' => 'Daftar Quiz Pembelajaran',
+    'create' => 'Tambah Quiz Pembelajaran',
+    'edit' => 'Ubah Quiz Pembelajaran',
+    'show' => 'Detail Quiz Pembelajaran',
+    'delete' => 'Hapus Quiz Pembelajaran',
+  ],
 ];

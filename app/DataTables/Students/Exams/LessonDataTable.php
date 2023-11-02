@@ -1,13 +1,12 @@
 <?php
 
-namespace App\DataTables\Consoles\Masters;
+namespace App\DataTables\Students\Exams;
 
-use App\Helpers\Enums\RoleType;
 use App\Models\Lesson;
 use App\Helpers\Helper;
-use App\Services\Lesson\LessonService;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
+use App\Services\Lesson\LessonService;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
@@ -51,7 +50,7 @@ class LessonDataTable extends DataTable
           $row->where('name', 'like', "%{$keyword}%");
         });
       })
-      ->addColumn('action', 'consoles.masters.lessons.action')
+      ->addColumn('action', 'students.lessons.action')
       ->rawColumns([
         'action',
         'status',
@@ -63,11 +62,7 @@ class LessonDataTable extends DataTable
    */
   public function query(Lesson $model): QueryBuilder
   {
-    if (isRoleName() !== RoleType::ADMIN->value) {
-      return $this->lessonService->getQuery()->active()->latest();
-    }
-
-    return $this->lessonService->getQuery()->oldest('title');
+    return $this->lessonService->getQuery()->active()->latest();
   }
 
   /**
@@ -80,15 +75,6 @@ class LessonDataTable extends DataTable
       ->columns($this->getColumns())
       ->minifiedAjax()
       //->dom('Bfrtip')
-      ->ajax([
-        'url' => route('lessons.index'),
-        'type' => 'GET',
-        'data' => "
-        function(data) {
-          _token = '{{ csrf_token() }}',
-          data.status = $('select[name=status]').val();
-        }"
-      ])
       ->addTableClass([
         'table',
         'table-striped',
@@ -111,12 +97,6 @@ class LessonDataTable extends DataTable
    */
   public function getColumns(): array
   {
-    // Check Visibility of Action Row
-    $visibility = Helper::checkPermissions([
-      'lessons.edit',
-      'lessons.destroy',
-    ]);
-
     return [
       Column::make('DT_RowIndex')
         ->title(trans('#'))
@@ -142,7 +122,6 @@ class LessonDataTable extends DataTable
       Column::computed('action')
         ->exportable(false)
         ->printable(false)
-        ->visible($visibility)
         ->width('10%')
         ->addClass('text-center'),
     ];

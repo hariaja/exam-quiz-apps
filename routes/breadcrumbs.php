@@ -2,6 +2,9 @@
 
 // Note: Laravel will automatically resolve `Breadcrumbs::` without
 // this import. This is nice for IDE syntax and refactoring.
+
+use App\Helpers\Enums\RoleType;
+use App\Helpers\Helper;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 
 // This import is also not required, and you could replace `BreadcrumbTrail $trail`
@@ -10,7 +13,7 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 // Home
 Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
-  $trail->push(trans('page.overview.title'), route('home'));
+  $trail->push(trans('page.overview.title'), Helper::cekUserBreadcrumbs(isRoleName(), route('home'), route('students.home')));
 });
 
 // Roles Breadcrumbs
@@ -79,7 +82,7 @@ Breadcrumbs::for('levels.show', function (BreadcrumbTrail $trail, $level) {
 // lessons Breadcrumbs
 Breadcrumbs::for('lessons.index', function (BreadcrumbTrail $trail) {
   $trail->parent('home');
-  $trail->push(trans('page.lessons.index'), route('lessons.index'));
+  $trail->push(trans('page.lessons.index'), Helper::cekUserBreadcrumbs(isRoleName(), route('lessons.index'), route('students.lessons.index')));
 });
 
 Breadcrumbs::for('lessons.create', function (BreadcrumbTrail $trail) {
@@ -94,7 +97,7 @@ Breadcrumbs::for('lessons.edit', function (BreadcrumbTrail $trail, $lesson) {
 
 Breadcrumbs::for('lessons.show', function (BreadcrumbTrail $trail, $lesson) {
   $trail->parent('lessons.index');
-  $trail->push(trans('page.lessons.show'), route('lessons.show', $lesson->uuid));
+  $trail->push(trans('page.lessons.show'), Helper::cekUserBreadcrumbs(isRoleName(), route('lessons.show', $lesson->uuid), route('students.lessons.index', $lesson->uuid)));
 });
 
 // categories Breadcrumbs

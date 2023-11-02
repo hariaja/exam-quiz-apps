@@ -78,4 +78,17 @@ return [
     'delete' => 'Hapus Permanen Quiz yang sudah Terhapus dari penyimpanan',
     'restore' => 'Restore Data Quiz yang ditentukan dari penyimpanan yang sudah dihapus',
   ],
+
+  'results' => [
+    'name' => 'Management Quiz Pembelajaran',
+    'index' => 'Menampilkan daftar Quiz Pembelajaran',
+    'create' => 'Tampilkan formulir untuk membuat Quiz Pembelajaran baru',
+    'store' => 'Simpan Quiz Pembelajaran yang baru dibuat di penyimpanan',
+    'show' => 'Menampilkan Detail Quiz Pembelajaran yang ditentukan',
+    'edit' => 'Tampilkan formulir untuk mengedit Quiz Pembelajaran yang ditentukan',
+    'update' => 'Perbarui Quiz Pembelajaran yang ditentukan dalam penyimpanan',
+    'destroy' => 'Hapus Quiz Pembelajaran yang ditentukan dari penyimpanan',
+    'delete' => 'Hapus Permanen Quiz Pembelajaran yang sudah Terhapus dari penyimpanan',
+    'restore' => 'Restore Data Quiz Pembelajaran yang ditentukan dari penyimpanan yang sudah dihapus',
+  ],
 ];

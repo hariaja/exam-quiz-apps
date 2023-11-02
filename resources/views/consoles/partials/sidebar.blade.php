@@ -153,16 +153,16 @@
                 </a>
               </li>
               @endcan
-              @can('roles.index')
+              {{-- @can('roles.index')
               <li class="nav-main-item">
                 <a class="nav-main-link {{ Request::is('consoles/settings/roles*') ? 'active' : '' }}" href="{{ route('roles.index') }}">
-                  <span class="nav-main-link-name">{{ trans('page.roles.title') }}</span>
-                </a>
-              </li>
-              @endcan
-            </ul>
+              <span class="nav-main-link-name">{{ trans('page.roles.title') }}</span>
+              </a>
           </li>
-          @endcan
+          @endcan --}}
+        </ul>
+        </li>
+        @endcan
 
         </ul>
       </div>

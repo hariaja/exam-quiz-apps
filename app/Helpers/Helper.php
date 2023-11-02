@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Helpers\Enums\RoleType;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -155,5 +156,28 @@ class Helper
     }
 
     return $videoId;
+  }
+
+  /**
+   * cekUserBreadcrumbs
+   */
+  public static function cekUserBreadcrumbs(
+    $roles,
+    $adminRoute,
+    $studentRoute,
+  ) {
+    $role = $roles;
+
+    switch ($role) {
+      case RoleType::ADMIN->value:
+        $route = $adminRoute;
+        break;
+
+      default:
+        $route = $studentRoute;
+        break;
+    }
+
+    return $route;
   }
 }
