@@ -31,7 +31,8 @@ class ResultController extends Controller
    */
   public function index()
   {
-    //
+    $lessons = Lesson::with('results')->get();
+    return view('students.results.index', compact('lessons'));
   }
 
   /**
@@ -62,9 +63,9 @@ class ResultController extends Controller
   /**
    * Display the specified resource.
    */
-  public function show(Result $result)
+  public function show(Lesson $lesson)
   {
-    //
+    return view('students.results.show', compact('lesson'));
   }
 
   /**

@@ -12,4 +12,5 @@ interface LessonService extends BaseService
   public function handleStoreData(Request $request);
   public function handleUpdateData(Request $request, int $id);
   public function handleDeleteData(int $id);
+  public function getDataByUserResult($userResults = [], $columns = '*');
 }

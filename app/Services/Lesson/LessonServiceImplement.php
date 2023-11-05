@@ -56,6 +56,22 @@ class LessonServiceImplement extends Service implements LessonService
     }
   }
 
+  public function getDataByUserResult($userResults = [], $columns = '*')
+  {
+    try {
+      DB::beginTransaction();
+      return $this->mainRepository->getDataByUserResult(
+        userResults: $userResults,
+        columns: $columns,
+      );
+      DB::commit();
+    } catch (\Exception $e) {
+      DB::rollBack();
+      Log::info($e->getMessage());
+      throw new InvalidArgumentException(trans('alert.log.error'));
+    }
+  }
+
   public function handleStoreData($request)
   {
     try {

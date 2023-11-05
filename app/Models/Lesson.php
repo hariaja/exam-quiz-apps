@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Lesson extends Model
 {
@@ -107,5 +108,20 @@ class Lesson extends Model
   public function category(): BelongsTo
   {
     return $this->belongsTo(Category::class, 'category_id');
+  }
+
+  /**
+   * Relation to model results
+   *
+   * @return HasManyThrough
+   */
+  public function results(): HasManyThrough
+  {
+    return $this->hasManyThrough(
+      Result::class,
+      Question::class,
+      'lesson_id',
+      'question_id',
+    )->where('user_id', auth()->user()->id);
   }
 }

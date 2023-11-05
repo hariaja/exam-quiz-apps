@@ -20,7 +20,8 @@ Route::prefix('students')->name('students.')->group(function () use ($roles) {
     Route::resource('lessons', LessonController::class)->only('index', 'show');
 
     // Result
+    Route::get('results/lessons/{lesson}', [ResultController::class, 'show'])->name('results.show');
     Route::get('results/create/{lesson}', [ResultController::class, 'create'])->name('results.create');
-    Route::resource('results', ResultController::class)->except('create');
+    Route::resource('results', ResultController::class)->only('index', 'store');
   });
 });

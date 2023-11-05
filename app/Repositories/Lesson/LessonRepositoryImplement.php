@@ -43,4 +43,13 @@ class LessonRepositoryImplement extends Eloquent implements LessonRepository
 
     return $data;
   }
+
+  public function getDataByUserResult($userResults = [], $columns = '*')
+  {
+    $data = $this->model->select($columns)
+      ->join('questions', 'lessons.id', '=', 'questions.lesson_id')
+      ->whereIn('questions.id', $userResults);
+
+    return $data;
+  }
 }

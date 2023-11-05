@@ -11,3 +11,10 @@
     <span class="nav-main-link-name">{{ trans('page.lessons.title') }}</span>
   </a>
 </li>
+
+<li class="nav-main-item">
+  <a class="nav-main-link {{ Request::is('students/results*') ? 'active' : '' }}" href="{{ route('students.results.index') }}">
+    <i class="nav-main-link-icon fa fa-file"></i>
+    <span class="nav-main-link-name">{{ trans('Hasil Quiz Pembelajaran') }}</span>
+  </a>
+</li>
