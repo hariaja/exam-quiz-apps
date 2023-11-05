@@ -40,10 +40,10 @@
           <p class="mb-0 text-muted fs-sm fw-medium">{{ isRoleName() }}</p>
         </div>
         <div class="p-2">
-          <a class="dropdown-item d-flex align-items-center justify-content-between" href="#">
+          <a class="dropdown-item d-flex align-items-center justify-content-between" href="{{ route('students.users.show', me()->uuid) }}">
             <span class="fs-sm fw-medium">{{ trans('Profile') }}</span>
           </a>
-          <a class="dropdown-item d-flex align-items-center justify-content-between" href="#">
+          <a class="dropdown-item d-flex align-items-center justify-content-between" href="{{ route('students.users.password', me()->uuid) }}">
             <span class="fs-sm fw-medium">{{ trans('Ubah Kata Sandi') }}</span>
           </a>
         </div>

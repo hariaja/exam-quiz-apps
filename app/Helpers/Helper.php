@@ -57,7 +57,11 @@ class Helper
     if (me()->id != $user->id) :
       return redirect(route('users.index'))->with('success', trans('alert.update'));
     else :
-      return redirect(route('users.show', me()->uuid))->with('success', trans('Berhasil Memperbaharui Profil Anda'));
+      if ($user->getRoleName() == RoleType::STUDENT->value) :
+        return redirect(route('students.users.show', me()->uuid))->with('success', trans('Berhasil Memperbaharui Profil Anda'));
+      else :
+        return redirect(route('users.show', me()->uuid))->with('success', trans('Berhasil Memperbaharui Profil Anda'));
+      endif;
     endif;
   }
 

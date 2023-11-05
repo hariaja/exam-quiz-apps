@@ -36,7 +36,7 @@
   @empty
   <div class="col-12 col-xl-6">
     <h2 class="h5 fw-medium">
-      {{ trans('Belum Ada Materi Yang Diselesaikan') }}
+      {{ trans('Belum Ada Materi Yang Diselesaikan, Silahkan selesaikan di halaman materi pembelajaran.') }}
     </h2>
   </div>
   @endforelse

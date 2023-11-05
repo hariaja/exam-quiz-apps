@@ -31,7 +31,12 @@ class ResultController extends Controller
    */
   public function index()
   {
-    $lessons = Lesson::with('results')->get();
+    // $lessons = Lesson::with('results')->get();
+
+    $lessons = Lesson::whereHas('results', function ($query) {
+      $query->where('user_id', me()->id);
+    })->get();
+
     return view('students.results.index', compact('lessons'));
   }
 
