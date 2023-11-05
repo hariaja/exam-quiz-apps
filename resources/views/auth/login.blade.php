@@ -43,10 +43,13 @@
             </div>
           </div>
 
-          <div class="mb-4">
+          <div class="mb-4 space-y-2">
             <button type="submit" class="btn btn-lg btn-alt-primary w-100 py-3 fw-semibold" id="submit-button">
               {{ trans('Masuk Aplikasi') }}
             </button>
+            <a class="btn btn-alt-secondary w-100" href="{{ route('register') }}">
+              {{ trans('Buat Akun Baru') }}
+            </a>
           </div>
 
         </form>
